@@ -166,3 +166,119 @@ a.secondary {
     filter: invert();
   }
 }
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+  border-radius: 8px;
+  background: var(--gray-alpha-100);
+}
+
+.loginForm h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 24px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup input {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--gray-alpha-200);
+  background: var(--background);
+  font-size: 16px;
+  width: 100%;
+}
+
+.loggedContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+  border-radius: 8px;
+  background: var(--gray-alpha-100);
+}
+
+.loggedContent h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+}
+
+.userInfo p {
+  margin: 0;
+  padding: 8px;
+  background: var(--gray-alpha-100);
+  border-radius: 6px;
+}
+
+.userInfo strong {
+  display: inline-block;
+  min-width: 120px;
+}
+
+button.primary {
+  appearance: none;
+  border-radius: 128px;
+  height: 48px;
+  padding: 0 20px;
+  border: none;
+  background: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  transition:
+    background 0.2s,
+    opacity 0.2s;
+}
+
+button.primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background: var(--gray-alpha-200);
+  color: var(--foreground);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  button.primary:hover:not(:disabled) {
+    background: var(--button-primary-hover);
+  }
+}
+
+.errorMessage {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .errorMessage {
+    background: #451a1a;
+    color: #fca5a5;
+  }
+}

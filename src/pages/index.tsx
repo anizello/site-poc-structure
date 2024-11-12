@@ -4,6 +4,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 import styles from "@/styles/Home.module.css";
 import { Header } from "@/components/Header";
+import Link from "next/link";
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -72,6 +73,7 @@ export default function Home() {
                   <strong>Sessão expira em:</strong> {session.expires}
                 </p>
               </div>
+              <Link href="/outra-pagina">Outra página</Link>
               <button
                 className={styles.primary}
                 onClick={handleSignOut}

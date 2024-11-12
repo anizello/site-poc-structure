@@ -1,0 +1,56 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.authButton {
+  min-width: 100px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  background-color: #f3f4f6;
+  border: none;
+  color: #374151;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.authButton:hover:not(:disabled) {
+  background-color: #e5e7eb;
+}
+
+.authButton:disabled {
+  cursor: default;
+}
+
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton {
+  height: 1rem;
+  width: 80px;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+}

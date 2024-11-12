@@ -4,6 +4,8 @@ import { URLs } from "@/constants/urls";
 import { ApiError } from "@/utils/api-error";
 import { replaceUrlParams } from "@/utils/urls";
 
+import env from "@/constants/env";
+
 interface UserResponse {
   data: UserProps;
   status: number;
@@ -15,7 +17,7 @@ export class UserService {
   private readonly baseUrl: string;
 
   private constructor() {
-    this.baseUrl = URLs.EXTERNAL.CERBERUS.BASE;
+    this.baseUrl = env.CERBERUS_URL || "";
   }
 
   public static getInstance(): UserService {
@@ -25,10 +27,7 @@ export class UserService {
     return UserService.instance;
   }
 
-  async getUserAuthInfo(
-    accessToken: string,
-    email: string,
-  ): Promise<UserProps> {
+  async getUserInfo(token: string, email: string): Promise<UserProps> {
     try {
       const ENDPOINT = replaceUrlParams(
         URLs.EXTERNAL.CERBERUS.ENDPOINTS.USER_INFO,
@@ -39,7 +38,7 @@ export class UserService {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${token}`,
         },
         cache: "no-store",
       });

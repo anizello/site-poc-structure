@@ -70,7 +70,7 @@ export const authOptions = {
     async session({ session, token }) {
       const decodedToken = jwt.decode(token.accessToken);
 
-      const userInfo = await UserService.getInstance().getUserAuthInfo(
+      const userInfo = await UserService.getInstance().getUserInfo(
         token.accessToken,
         decodedToken.username,
       );

@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 import styles from "@/styles/Home.module.css";
+import { Header } from "@/components/Header";
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -49,11 +50,11 @@ export default function Home() {
       </Head>
       <div className={styles.page}>
         <main className={styles.main}>
-          {status === "loading" ? (
-            <p>Carregando...</p>
-          ) : session ? (
+          <Header />
+
+          {status === "loading" ? null : session ? (
             <div className={styles.loggedContent}>
-              <h1>Welcome!</h1>
+              <h1>Olás!</h1>
               <div className={styles.userInfo}>
                 <p>
                   <strong>Email:</strong> {session.user?.email}
